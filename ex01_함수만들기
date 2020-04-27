@@ -42,15 +42,15 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
     }
-
+    
     // 함수만들기 - 함수에 전달받은 클릭횟수로 조건에 따라 메시지를 보여준다. (if문 사용: 초기식; 조건식; 증감식;)
     void showMessage(int clickCount) {
         if (clickCount % 2 == 0) {
             Toast.makeText(getApplicationContext(), "클릭횟수: " + clickCount, Toast.LENGTH_SHORT).show();
         } else if (clickCount % 3 == 0) {
-            Toast.makeText(getApplicationContext(), "클릭횟수: " + clickCount, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "클릭횟수: 2의배수 (" + clickCount + ")", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(getApplicationContext(), "둘 다 아님" + clickCount, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "클릭횟수: 3의배수 (" + clickCount + ")", Toast.LENGTH_SHORT).show();
         }
     }
 }
