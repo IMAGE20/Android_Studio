@@ -1,0 +1,56 @@
+// 함수만들기 예제
+package lmj.com;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class SecondActivity extends AppCompatActivity {
+    int clickCount1 = 0;
+    int clickCount2 = 0;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_second);
+
+        // "프로그래밍을 시작해보자!" 토스트 메시지 출력
+        Toast.makeText(getApplicationContext(), "프로그래밍을 시작해보자!", Toast.LENGTH_SHORT).show();
+
+        // 레이아웃에 testbutton1 ID로 선언된 뷰에 클릭 이벤트 리스너 등록
+        findViewById(R.id.test1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 클릭 카운트 1씩 증가시키기
+                clickCount1 = clickCount1 + 1;
+
+                // showMessage 함수 파라미터 clickCount에 clickCount1 변수를 넘겨 실행한다.
+                showMessage(clickCount1);
+            }
+        });
+
+        // 레이아웃에 testbutton2 ID로 선언된 뷰에 클릭 이벤트 리스터 등록
+        findViewById(R.id.test2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickCount2 = clickCount2 + 1;
+
+                // showMessage 함수 파라미터 clickCount에 clickCount2 변수를 넘겨 실행한다.
+                showMessage(clickCount2);
+            }
+        });
+    }
+
+    // 함수만들기 - 함수에 전달받은 클릭횟수로 조건에 따라 메시지를 보여준다. (if문 사용: 초기식; 조건식; 증감식;)
+    void showMessage(int clickCount) {
+        if (clickCount % 2 == 0) {
+            Toast.makeText(getApplicationContext(), "클릭횟수: " + clickCount, Toast.LENGTH_SHORT).show();
+        } else if (clickCount % 3 == 0) {
+            Toast.makeText(getApplicationContext(), "클릭횟수: " + clickCount, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "둘 다 아님" + clickCount, Toast.LENGTH_SHORT).show();
+        }
+    }
+}
